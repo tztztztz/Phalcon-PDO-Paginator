@@ -22,9 +22,7 @@ $sqlData['sql'] = 'SELECT * FROM shop_orders WHERE creation_time > :ct:';
 $sqlData['bind'] = ['ct' => '2020-03-31'];
 
 //////////
-// Optional but strongly recommended array with format/structure similar 
-// to result value of Builder->getQuery()->getSQL() function
-// it should contain dedicated query to determine number of records for $sqlData, 
+// Optional but strongly recommended dedicated query to determine number of records for $sqlData, 
 // usually calculating it by COUNT() function
 // 
 // Please note, that for $sqlCount binds from sqlData will be used inside PDOPaginator
