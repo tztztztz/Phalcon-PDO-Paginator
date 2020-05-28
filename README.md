@@ -24,7 +24,9 @@ $sqlData['bind'] = '2020-03-31';
 //////////
 // Optional but strongly recommended array with format/structure similar 
 // to result value of Builder->getQuery()->getSQL() function
-// it should contain dedicated query to determine number of records for $sqlData - usually calculating it by COUNT() function
+// it should contain dedicated query to determine number of records for $sqlData, 
+// usually calculating it by COUNT() function
+// 
 // Please note, that for $sqlCount binds from sqlData will be used inside PDOPaginator
 // For example:
 $sqlCount = 'SELECT COUNT(*) FROM shop_orders WHERE creation_time > :ct:';
@@ -38,7 +40,8 @@ $dialect = new \Phalcon\Db\Adapter\Pdo\Postgresql( $descriptor );
 $PDO;     
 
 //////////
-// 'row_creator' key contains callback class to create row in result set array based on $row fetched form PDO result,
+// 'row_creator' key contains callback class to create row in result set array 
+// based on $row fetched form PDO result,
 // with PDO::FETCH_ALL option
 // the most basic is just to return $row
 // In this example we're returning Phalcon Entity created from raw row
