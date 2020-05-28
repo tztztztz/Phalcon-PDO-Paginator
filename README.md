@@ -5,29 +5,37 @@ Paginator is compatible with standard Phalcon paginators, as it extends \Phalcon
 Example usage:
 
 ```
+//////////
 // Page size
 $pageSize = 10;
 
+//////////
 // Page number
 $pageNumber = 1;
 
-
-// Array with format/structure similar to restur value of Builder->getQuery()->getSQL() function
+//////////
+// Array with format/structure similar to restul value of Builder->getQuery()->getSQL() function
 // it contains query to execute
+// For example:
+$sqlData = [];
+$sqlData['sql'] = 'SELECT * FROM shop_orders WHERE creation_time > :ct:';
+$sqlData['bind'] = '2020-03-31';
 
-// For example $sqlData['sql'] = SELECT * FROM shop_orders WHERE creation_time > '2020-03-31'
-$sqlData;
+//////////
+// Optional but strongly recommended array with format/structure similar to restul value of Builder->getQuery()->getSQL() function
+// it should contain dedicated query to determine number of records for $sqlData - usually calculating it by COUNT() function
+// Please note, that for $sqlCount binds from sqlData will be used inside PDOPaginator
+// For example:
+$sqlCount = 'SELECT COUNT(*) FROM shop_orders WHERE creation_time > :ct:';
 
-// Optional but strongly recommended array with format/structure similar to restur value of Builder->getQuery()->getSQL() function
-// it shoukd contain dedicated query to determine number of records for $sqlData - usually calculating it by COUNT() function
-//
-// For example $sqlData['sql'] = SELECT COUNT(*) FROM shop_orders WHERE creation_time > '2020-03-31'
-$sqlCount;
 
+
+//////////
 // Dialect interface object, for example \Phalcon\Db\Adapter\Pdo\Postgresql
 $dialect = new \Phalcon\Db\Adapter\Pdo\Postgresql( $descriptor ); 
 
-// \PDO class object
+//////////
+// Initialized \PDO class object
 $PDO;     
 
 // 'row_creator' key contains callback class to create row in result set array based on $row fetched form PDO result,
@@ -42,7 +50,7 @@ $config = [
     'limit' => $pageSize,
     'page' => pageNumber,
     'sql' => $sqlData,
-    'sql_count' => $sqlCount['sql'],
+    'sql_count' => sqlCount,
     'pdo' => $PDO,
     'dialect' => $dialect,
     'row_creator' => function($row) use($entClass) {
