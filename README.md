@@ -19,7 +19,7 @@ $pageNumber = 1;
 // For example:
 $sqlData = [];
 $sqlData['sql'] = 'SELECT * FROM shop_orders WHERE creation_time > :ct:';
-$sqlData['bind'] = '2020-03-31';
+$sqlData['bind'] = ['ct' => '2020-03-31'];
 
 //////////
 // Optional but strongly recommended array with format/structure similar 
