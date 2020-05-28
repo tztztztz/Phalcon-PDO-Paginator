@@ -128,9 +128,6 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
         $totalItems = $stmtALL->rowCount();
       }
       
-      $totalItems = $stmtALL->rowCount();
-      
-      
       if ($totalItems > 0) {
         
         // Last page number
