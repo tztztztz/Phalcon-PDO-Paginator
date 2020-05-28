@@ -14,7 +14,7 @@ $pageSize = 10;
 $pageNumber = 1;
 
 //////////
-// Array with format/structure similar to restul value of Builder->getQuery()->getSQL() function
+// Array with format/structure similar to result value of Builder->getQuery()->getSQL() function
 // it contains query to execute
 // For example:
 $sqlData = [];
@@ -22,7 +22,8 @@ $sqlData['sql'] = 'SELECT * FROM shop_orders WHERE creation_time > :ct:';
 $sqlData['bind'] = '2020-03-31';
 
 //////////
-// Optional but strongly recommended array with format/structure similar to restul value of Builder->getQuery()->getSQL() function
+// Optional but strongly recommended array with format/structure similar 
+// to result value of Builder->getQuery()->getSQL() function
 // it should contain dedicated query to determine number of records for $sqlData - usually calculating it by COUNT() function
 // Please note, that for $sqlCount binds from sqlData will be used inside PDOPaginator
 // For example:
