@@ -28,8 +28,6 @@ $sqlData['bind'] = '2020-03-31';
 // For example:
 $sqlCount = 'SELECT COUNT(*) FROM shop_orders WHERE creation_time > :ct:';
 
-
-
 //////////
 // Dialect interface object, for example \Phalcon\Db\Adapter\Pdo\Postgresql
 $dialect = new \Phalcon\Db\Adapter\Pdo\Postgresql( $descriptor ); 
@@ -38,6 +36,7 @@ $dialect = new \Phalcon\Db\Adapter\Pdo\Postgresql( $descriptor );
 // Initialized \PDO class object
 $PDO;     
 
+//////////
 // 'row_creator' key contains callback class to create row in result set array based on $row fetched form PDO result,
 // with PDO::FETCH_ALL option
 // the most basic is just to return $row
