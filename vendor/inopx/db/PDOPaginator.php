@@ -73,7 +73,7 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
       throw new Exception("Parameter 'sql' is required and it must be array");
     }
     
-    if (!isset($config['dialect']) && !($config['dialect'] instanceof \PDO)) {
+    if (!isset($config['dialect']) && !($config['dialect'] instanceof \Phalcon\Db\DialectInterface)) {
       throw new Exception("Parameter 'dialect' is required and it must be instance of \Phalcon\Db\DialectInterface");
     }
     
