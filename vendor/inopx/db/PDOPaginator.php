@@ -70,19 +70,19 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
     parent::__construct($config);
     
     if (!isset($config['sql']) || !is_array($config['sql'])) {
-      throw new Exception("Parameter 'sql' is required and it must be array");
+      throw new \Exception("Parameter 'sql' is required and it must be array");
     }
     
     if (!isset($config['dialect']) || !($config['dialect'] instanceof \Phalcon\Db\DialectInterface)) {
-      throw new Exception("Parameter 'dialect' is required and it must be instance of \Phalcon\Db\DialectInterface");
+      throw new \Exception("Parameter 'dialect' is required and it must be instance of \Phalcon\Db\DialectInterface");
     }
     
     if (!isset($config['pdo']) || !($config['pdo'] instanceof \PDO)) {
-      throw new Exception("Parameter 'pdo' is required and it must be instance of \PDO");
+      throw new \Exception("Parameter 'pdo' is required and it must be instance of \PDO");
     }
     
     if (!isset($config['row_creator']) || !is_callable($config['row_creator'])) {
-      throw new Exception("Parameter 'row_creator' is required and it must be a callback");
+      throw new \Exception("Parameter 'row_creator' is required and it must be a callback");
     }
     
     $this->sql = $config['sql'];
