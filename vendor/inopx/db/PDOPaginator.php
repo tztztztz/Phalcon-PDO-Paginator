@@ -26,7 +26,7 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
   protected $sql;
   
   /**
-   * SQL SELECT Statement for counting rows, it must have resull column of qty containing total number of rows
+   * SQL SELECT Statement for counting rows, it must have 1st result column containing total number of rows
    * 
    * @var type 
    */
