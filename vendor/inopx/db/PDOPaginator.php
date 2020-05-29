@@ -99,9 +99,9 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
 
   public function paginate(): \Phalcon\Paginator\RepositoryInterface {
     
-    !$this->PDO->inTransaction() ? $needTranscation = true : $needTranscation = false;
+    !$this->PDO->inTransaction() ? $needTransaction = true : $needTransaction = false;
     
-    if ($needTranscation) {
+    if ($needTransaction) {
       $this->PDO->beginTransaction();
     }
     
@@ -127,6 +127,7 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
         $stmtALL->execute($this->sql['bind']);
         $totalItems = $stmtALL->rowCount();
       }
+      
       
       if ($totalItems > 0) {
         
@@ -163,7 +164,7 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
     }
     catch (\Exception $e) {
       
-      if ($needTranscation) {
+      if ($needTransaction) {
         $this->PDO->rollBack();
       }
       
@@ -171,7 +172,7 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
       
     }
     
-    if ($needTranscation) {
+    if ($needTransaction) {
       $this->PDO->commit();
     }
     
