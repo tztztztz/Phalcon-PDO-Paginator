@@ -67,5 +67,13 @@ $config = [
 ];
 
 $paginator = new \inopx\db\PDOPaginator($config);
-$paginator->paginate();
+
+/* @var $repository \inopx\db\PDOPaginatorRepository */
+$repository = $paginator->paginate();
+
+if (!empty($repository->items)) {
+    foreach ($repository->items as $item) {
+        // Do something....
+    }
+}
 ```
