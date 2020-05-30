@@ -169,10 +169,11 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
     catch (\Exception $e) {
       
       if ($needTransaction) {
+        $needTransaction = false;
         $this->PDO->rollBack();
       }
       
-      echo $e->getMessage(); exit;
+      \trigger_error($e->getMessage());
       
     }
     
