@@ -61,6 +61,17 @@ class PDOPaginatorRepository implements \Phalcon\Paginator\RepositoryInterface {
    */
   protected $totalItems;
   
+  /**
+   * 
+   * @param type $items
+   * @param type $current
+   * @param type $last
+   * @param type $next
+   * @param type $previous
+   * @param type $limit
+   * @param type $totalItems
+   * @return \inopx\db\PDOPaginatorRepository
+   */
   public static function factoryDefault($items, $current, $last, $next, $previous, $limit, $totalItems) {
     
     $rt = new self();
