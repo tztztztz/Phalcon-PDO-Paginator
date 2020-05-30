@@ -96,7 +96,11 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
     
   }
   
-
+  /**
+   * Executes SQL, creates and returns Paginator Repository Interface
+   * 
+   * @return \Phalcon\Paginator\RepositoryInterface
+   */
   public function paginate(): \Phalcon\Paginator\RepositoryInterface {
     
     !$this->PDO->inTransaction() ? $needTransaction = true : $needTransaction = false;
@@ -168,7 +172,7 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
         $this->PDO->rollBack();
       }
       
-      throw new \Exception( $e->getMessage() );
+      echo $e->getMessage(); exit;
       
     }
     
