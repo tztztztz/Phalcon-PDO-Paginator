@@ -49,7 +49,7 @@ $entClass = '\my_namespace\MyEntity';
 
 $config = [
     'limit' => $pageSize,
-    'page' => pageNumber,
+    'page' => $pageNumber,
     'sql' => $sqlData,
     'sql_count' => $sqlCount,
     'pdo' => $PDO,
@@ -71,8 +71,8 @@ $paginator = new \inopx\db\PDOPaginator($config);
 /* @var $repository \inopx\db\PDOPaginatorRepository */
 $repository = $paginator->paginate();
 
-if (!empty($repository->items)) {
-    foreach ($repository->items as $item) {
+if (!empty($repository->getItems())) {
+    foreach ($repository->getItems() as $item) {
         // Do something....
     }
 }
