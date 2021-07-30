@@ -18,7 +18,7 @@ $pageNumber = 1;
 // it contains query to execute
 // For example:
 $sqlData = [];
-$sqlData['sql'] = 'SELECT * FROM shop_orders WHERE creation_time > :ct:';
+$sqlData['sql'] = 'SELECT * FROM shop_orders WHERE creation_time > :ct';
 $sqlData['bind'] = ['ct' => '2020-03-31'];
 
 //////////
@@ -27,7 +27,7 @@ $sqlData['bind'] = ['ct' => '2020-03-31'];
 // 
 // Please note, that for $sqlCount binds from sqlData will be used inside PDOPaginator
 // For example:
-$sqlCount = 'SELECT COUNT(*) FROM shop_orders WHERE creation_time > :ct:';
+$sqlCount = 'SELECT COUNT(*) FROM shop_orders WHERE creation_time > :ct';
 
 //////////
 // Dialect interface object, for example \Phalcon\Db\Adapter\Pdo\Postgresql
