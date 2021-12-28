@@ -151,7 +151,7 @@ class PDOPaginator extends \Phalcon\Paginator\Adapter\AbstractAdapter {
       if ($totalItems > 0) {
         
         // Last page number
-        $last = floor( $totalItems / $this->limitRows );
+        $last = ceil( $totalItems / $this->limitRows );
         $last < 1 ? $last = 1 : null;
         
         // Current page number
